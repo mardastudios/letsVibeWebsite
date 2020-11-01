@@ -47,56 +47,49 @@ body {
 nav a.p-2 {
 	color: #f2f2f2;
 }
-nav {
-  margin-top: 40px;
-  padding: 24px;
-  text-align: center;
-  background: #1f1f1f;
-}
-/*
-adding a hover on the nav bars
-setting transition for the bottom border
-*/
+
 nav a {
-  transition: all .4s ease-in-out;
-  background: #1f1f1f;
-  color: white;
-  font-size: 20px;
-  text-decoration: none;
-  border-bottom: 4px solid transparent;
-  padding: 20px 0;
-  margin: 0 5px;
-  font-size: 17px;
-}
+	transition: all .4s ease-in-out;
+	background: #1f1f1f;
+	color: white;
+	font-size: 20px;
+	text-decoration: none;
+	border-bottom: 4px solid transparent;
+	padding: 20px 0;
+	margin: 0 5px;
+	font-size: 17px;
+  }
+  
+  nav a:nth-child(1):hover {
+	border-bottom: 4px solid #F1649B;
+	padding: 6px 0;
+	transition: all .4s ease-in-out;
+  }
+  nav a:nth-child(2):hover {
+	border-bottom: 4px solid #6F54EB;
+	padding: 6px 0;
+	transition: all .4s ease-in-out;
+  }
+  nav a:nth-child(3):hover {
+	border-bottom: 4px solid #D6857A;
+	padding: 6px 0;
+	transition: all .4s ease-in-out;
+  }
+  nav a:nth-child(4):hover {
+	border-bottom: 4px solid #68D9E3;
+	padding: 6px 0;
+	transition: all .4s ease-in-out;
+  }
+  
+  nav a.btn {
+	  background-color: linear-gradient(
+		  180deg,
+		  rgb(228, 177, 190) 0%,
+		  rgb(228, 177, 190, 0.8) 100%
+	  ) !important;
+  }
 
-nav a:nth-child(1):hover {
-  border-bottom: 4px solid #F1649B;
-  padding: 6px 0;
-  transition: all .4s ease-in-out;
-}
-nav a:nth-child(2):hover {
-  border-bottom: 4px solid #6F54EB;
-  padding: 6px 0;
-  transition: all .4s ease-in-out;
-}
-nav a:nth-child(3):hover {
-  border-bottom: 4px solid #D6857A;
-  padding: 6px 0;
-  transition: all .4s ease-in-out;
-}
-nav a:nth-child(4):hover {
-  border-bottom: 4px solid #68D9E3;
-  padding: 6px 0;
-  transition: all .4s ease-in-out;
-}
 
-nav a.btn {
-	background-color: linear-gradient(
-		180deg,
-		rgb(228, 177, 190) 0%,
-		rgb(228, 177, 190, 0.8) 100%
-	) !important;
-}
 #sign-in .card {
 	border-radius: 1rem;
 	background: linear-gradient(
@@ -125,9 +118,90 @@ nav a.btn {
 	border-radius: 1rem;
 	background: linear-gradient(
 		180deg,
+		rgba(255, 87, 128, 1) 0%,
+		rgba(255, 87, 128, 0.8) 100%
+	);
+}
+
+#feature-cards {
+	perspective: 1000px;
+}
+
+#feature-cards .card {
+	border-radius: 1rem;
+	background: linear-gradient(
+		180deg,
+		rgb(70, 70, 70) 0%,
+		rgba(70, 70, 70, 0.8) 100%
+	);
+	transform-style: preserve-3d;
+}
+#feature-cards .card:nth-child(1):hover {
+	border-radius: 1rem;
+	background: linear-gradient(
+		180deg,
+		rgba(100, 245, 116, 1) 0%,
+		rgba(100, 245, 116, 0.8) 100%
+	);
+}
+
+#feature-cards .card:nth-child(2):hover {
+	border-radius: 1rem;
+	background: linear-gradient(
+		180deg,
+		rgba(242, 242, 46, 1) 0%,
+		rgba(242, 242, 46, 0.8) 100%
+	);
+}
+
+#feature-cards .card:nth-child(3):hover {
+	border-radius: 1rem;
+	background: linear-gradient(
+		180deg,
+		rgba(241, 100, 155, 1) 0%,
+		rgba(241, 100, 155, 0.8) 100%
+	);
+}
+#feature-cards .card:nth-child(4):hover {
+	border-radius: 1rem;
+	background: linear-gradient(
+		180deg,
 		rgba(119, 130, 253, 1) 0%,
 		rgba(119, 130, 253, 0.8) 100%
 	);
+}
+#feature-cards .card:nth-child(5):hover {
+	border-radius: 1rem;
+	background: linear-gradient(
+		180deg,
+		rgba(104, 217, 227, 1) 0%,
+		rgba(104, 217, 227, 0.8) 100%
+	);
+}
+#feature-cards .card:nth-child(6):hover {
+	border-radius: 1rem;
+	background: linear-gradient(
+		180deg,
+		rgba(214, 133, 122, 1) 0%,
+		rgba(214, 133, 122, 0.8) 100%
+	);
+}
+#feature-cards .card img {
+	align-self: center;
+	width: 40%;
+	-webkit-filter: grayscale(100%);
+       -moz-filter: grayscale(100%);
+         -o-filter: grayscale(100%);
+        -ms-filter: grayscale(100%);
+            filter: gray;
+}
+
+#feature-cards .card:hover img {
+	-webkit-filter: grayscale(0%);
+       -moz-filter: grayscale(0%);
+         -o-filter: grayscale(0%);
+        -ms-filter: grayscale(0%);
+            filter: none;
 }
 
 #user-preview .card {
@@ -221,7 +295,7 @@ button#start-vibe:disabled {
 	);
 }
 
-{
+ {
 	background: linear-gradient(
 		180deg,
 		rgba(255, 87, 128, 1) 0%,
