@@ -184,16 +184,42 @@ function vibeYoutube(videoId) {
 	var vibeStatus = gun.user().get("profile").get("watching").get("status");
 }
 
-window.onmessage = function (e) {
-	var data = JSON.parse(e.data);
-	data = data.info;
-	if (data.currentTime) {
-		console.log("The current time is " + data.currentTime);
+var player;
+function onYouTubeIframeAPIReady() {
+	player = new YT.Player("vibe-video", {
+		events: {
+			onReady: onPlayerReady,
+			onStateChange: onPlayerStateChange,
+		},
+	});
+}
+function onPlayerReady(event) {
+	document.getElementById("vibe-video").style.borderColor = "#FF6D00";
+}
+function changeBorderColor(playerStatus) {
+	var color;
+	if (playerStatus == -1) {
+		color = "#37474F"; // unstarted = gray
+	} else if (playerStatus == 0) {
+		color = "#FFFF00"; // ended = yellow
+	} else if (playerStatus == 1) {
+		color = "#33691E"; // playing = green
+	} else if (playerStatus == 2) {
+		color = "#DD2C00"; // paused = red
+	} else if (playerStatus == 3) {
+		color = "#AA00FF"; // buffering = purple
+	} else if (playerStatus == 5) {
+		color = "#FF6DOO"; // video cued = orange
 	}
-	if (data.playerState) {
-		console.log("The player state is " + data.playerState);
+	if (color) {
+		document.getElementById(
+			"existing-iframe-example"
+		).style.borderColor = color;
 	}
-};
+}
+function onPlayerStateChange(event) {
+	changeBorderColor(event.data);
+}
 
 function init() {
 	var localStorageKey = localStorage.getItem("keyPair");
