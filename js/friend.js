@@ -57,6 +57,32 @@ function addFriend(channel) {
 			console.log(profileAvatar);
 		});
 
+	// gun.user(pub)
+	// 	.get("profile")
+	// 	.get("watching")
+	// 	.on(async (videoId) => {
+	// 		friends[pub].watching = await videoId;
+	// 		var title = "";
+	// 		var url = "https://www.youtube.com/watch?v=" + videoId;
+	// 		$.getJSON(
+	// 			"https://noembed.com/embed",
+	// 			{ format: "json", url: url },
+	// 			function (data) {
+	// 				title = data.title;
+	// 				console.log(title);
+	// 				console.log(data);
+	// 				element
+	// 					.find("#friend-username")
+	// 					.text(
+	// 						friends[pub].username +
+	// 							" is watching" +
+	// 							" -- " +
+	// 							title
+	// 					);
+	// 			}
+	// 		);
+	// 	});
+
 	friends[pub].online = {};
 
 	iris.Channel.getOnline(gun, pub, (online) => {

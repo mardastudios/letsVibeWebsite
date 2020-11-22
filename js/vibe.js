@@ -5,7 +5,6 @@ var ourIceCandidates;
 var userMediaStream;
 var localAudio = $(".localAudio");
 var remoteAudio = $(".remoteAudio");
-var callee = $(".callee");
 async function addStreamtoPeerConnection(pc) {
 	var constraints = { audio: true, video: false };
 	userMediaStream = await navigator.mediaDevices.getUserMedia(constraints);
@@ -23,7 +22,7 @@ async function addStreamtoPeerConnection(pc) {
 function showIncomingCall(pub) {
 	if (!friends[pub].pc) {
 		var answer_reject_btn = $(
-			'<button id="answer-vibe" type="btn"><i class="material-icons" aria-hidden="true">call</i> Answer</button><button id="reject-vibe" type="btn"><i class="material-icons" aria-hidden="true">call_end</i> Reject</button>'
+			'<button class="mx-4" id="answer-vibe" type="btn"><i class="material-icons" aria-hidden="true">call</i> Answer</button><button id="reject-vibe" type="btn"><i class="material-icons" aria-hidden="true">call_end</i> Reject</button>'
 		);
 		$("#start-vibe").replaceWith(answer_reject_btn);
 		var answer = $("#answer-vibe");

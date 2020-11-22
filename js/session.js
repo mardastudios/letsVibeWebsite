@@ -164,7 +164,9 @@ function onPasteYouTube(event) {
 	$(event.target).val("");
 }
 
-function vibeYoutube(videoId) {
+async function vibeYoutube(videoId) {
+	var player;
+
 	gun.user().get("profile").get("watching").put(videoId);
 	gun.user()
 		.get("profile")
@@ -176,10 +178,42 @@ function vibeYoutube(videoId) {
 	const iframeMarkup =
 		'<iframe id="vibe-video" width="560" height="315" src="//www.youtube.com/embed/' +
 		videoId +
-		'?enablejsapi=1?rel=0" frameborder="0" allowfullscreen></iframe>';
+		'?enablejsapi=1?rel="0" frameborder="0" origin="https://letsvibe.io" allowfullscreen></iframe>';
 	$(".youtubeVideo").empty();
 	$(".youtubeVideo").append(iframeMarkup);
 	$("#vibe-notice").text("Successfully fetched the video ...");
+
+	function onYouTubeIframeAPIReady() {
+		console.log("YOUTUBE LOADED");
+
+		player = new YT.Player("vibe-video", {
+			events: {
+				onReady: onPlayerReady,
+				onStateChange: onPlayerStateChange,
+			},
+		});
+
+		player.onStateChange((data) => {
+			console.log(data);
+		});
+	}
+
+	// 4. The API will call this function when the video player is ready.
+	async function onPlayerReady(event) {
+		console.log("PRINT");
+		await event.target.playVideo();
+	}
+
+	// 5. The API calls this function when the player's state changes.
+	//    The function indicates that when playing a video (state=1),
+	//    the player should play for six seconds and then stop.
+	var done = false;
+	function onPlayerStateChange(event) {
+		console.log(event.data);
+	}
+	function stopVideo() {
+		player.stopVideo();
+	}
 
 	var vibeStatus = gun.user().get("profile").get("watching").get("status");
 }
