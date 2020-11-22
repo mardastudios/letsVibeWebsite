@@ -32,6 +32,7 @@ function addFriend(channel) {
 		'<div id="vibe-avatar" class="row" style="width: auto; height: auto;"><img class="profile-avatar" alt="profile-avatar" style="width: auto; height: 75px; border:none;"></div>'
 	);
 	var callButton = $("#start-vibe");
+
 	if (friends[pub]) {
 		return;
 	}

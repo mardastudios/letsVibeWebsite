@@ -133,19 +133,21 @@ function getId(url) {
 	return match && match[2].length === 11 ? match[2] : null;
 }
 
-function callPlayer(iframe, func, args) {
-	iframe = document.getElementById(iframe);
-	var event = "command";
-	if (func.indexOf("get") > -1) {
-		event = "listening";
+function callPlayer(frame_id, func, args) {
+	if (window.jQuery && frame_id instanceof jQuery)
+		frame_id = frame_id.get(0).id;
+	var iframe = document.getElementById(frame_id);
+	if (iframe && iframe.tagName.toUpperCase() != "IFRAME") {
+		iframe = iframe.getElementsByTagName("iframe")[0];
 	}
-
-	if (iframe && iframe.src.indexOf("youtube.com/embed") !== -1) {
+	if (iframe) {
+		// Frame exists,
 		iframe.contentWindow.postMessage(
 			JSON.stringify({
-				event: event,
+				event: "command",
 				func: func,
 				args: args || [],
+				id: frame_id,
 			}),
 			"*"
 		);
@@ -176,83 +178,27 @@ async function vibeYoutube(videoId) {
 		});
 
 	const iframeMarkup =
-		'<iframe id="vibe-video" width="560" height="315" src="//www.youtube.com/embed/' +
+		'<iframe id="player" width="560" height="315" src="//www.youtube.com/embed/' +
 		videoId +
 		'?enablejsapi=1?rel="0" frameborder="0" origin="https://letsvibe.io" allowfullscreen></iframe>';
 	$(".youtubeVideo").empty();
 	$(".youtubeVideo").append(iframeMarkup);
 	$("#vibe-notice").text("Successfully fetched the video ...");
 
-	function onYouTubeIframeAPIReady() {
-		console.log("YOUTUBE LOADED");
-
-		player = new YT.Player("vibe-video", {
-			events: {
-				onReady: onPlayerReady,
-				onStateChange: onPlayerStateChange,
-			},
-		});
-
-		player.onStateChange((data) => {
-			console.log(data);
-		});
-	}
-
-	// 4. The API will call this function when the video player is ready.
-	async function onPlayerReady(event) {
-		console.log("PRINT");
-		await event.target.playVideo();
-	}
-
-	// 5. The API calls this function when the player's state changes.
-	//    The function indicates that when playing a video (state=1),
-	//    the player should play for six seconds and then stop.
-	var done = false;
-	function onPlayerStateChange(event) {
-		console.log(event.data);
-	}
-	function stopVideo() {
-		player.stopVideo();
-	}
-
 	var vibeStatus = gun.user().get("profile").get("watching").get("status");
 }
 
-var player;
-function onYouTubeIframeAPIReady() {
-	player = new YT.Player("vibe-video", {
-		events: {
-			onReady: onPlayerReady,
-			onStateChange: onPlayerStateChange,
-		},
-	});
-}
-function onPlayerReady(event) {
-	document.getElementById("vibe-video").style.borderColor = "#FF6D00";
-}
-function changeBorderColor(playerStatus) {
-	var color;
-	if (playerStatus == -1) {
-		color = "#37474F"; // unstarted = gray
-	} else if (playerStatus == 0) {
-		color = "#FFFF00"; // ended = yellow
-	} else if (playerStatus == 1) {
-		color = "#33691E"; // playing = green
-	} else if (playerStatus == 2) {
-		color = "#DD2C00"; // paused = red
-	} else if (playerStatus == 3) {
-		color = "#AA00FF"; // buffering = purple
-	} else if (playerStatus == 5) {
-		color = "#FF6DOO"; // video cued = orange
-	}
-	if (color) {
-		document.getElementById(
-			"existing-iframe-example"
-		).style.borderColor = color;
-	}
-}
-function onPlayerStateChange(event) {
-	changeBorderColor(event.data);
+function pauseVideo() {
+	// if state == 'hide', hide. Else: show video
+	var div = $(".youtubeVideo");
+	console.log(div);
+	var iframe = $("#player").get(0).contentWindow;
+	console.log(iframe);
+	iframe.postMessage(
+		'{"event":"command","func":"' + "pauseVideo" + '","args":""}',
+		"*"
+	);
+	console.log("posted");
 }
 
 function init() {
@@ -266,7 +212,8 @@ function init() {
 	}
 
 	$("#my-link").on("click", () => {
-		callPlayer($("#vibe-video"), "pauseVideo");
+		console.log("PAUSE");
+		pauseVideo();
 	});
 	$("#youtube-url").on("input", onPasteYouTube);
 	$("#goto-signin").on("click", function () {
@@ -342,9 +289,9 @@ function init() {
 		console.log("Friend Link: ", getFriendLink());
 	});
 
-	$("#my-link").click(() => {
-		helpers.copyToClipboard(getFriendLink());
-	});
+	// $("#my-link").click(() => {
+	// 	helpers.copyToClipboard(getFriendLink());
+	// });
 }
 
 export default {
