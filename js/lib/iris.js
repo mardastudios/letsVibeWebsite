@@ -7433,7 +7433,7 @@
 	    if (options.chatLink) {
 	      var s = options.chatLink.split('?');
 	      if (s.length === 2) {
-	        var pub = util.getUrlParameter('chatWith', s[1]);
+	        var pub = util.getUrlParameter('vibeWith', s[1]);
 	        var channelId = util.getUrlParameter('channelId', s[1]);
 	        var inviter = util.getUrlParameter('inviter', s[1]);
 	        if (pub) {

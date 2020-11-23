@@ -45,7 +45,7 @@ async function createFriendLink() {
 	latestChatLink = await iris.Channel.createChatLink(
 		gun,
 		key,
-		"https://letsvibe.io"
+		"https://letsvibe.io/"
 	);
 }
 
@@ -90,8 +90,8 @@ function login(k) {
 		}
 		window.history.pushState(
 			{},
-			"letsvibe.io",
-			"" +
+			"letsVibe",
+			"/" +
 				window.location.href
 					.substring(window.location.href.lastIndexOf("/") + 1)
 					.split("?")[0]

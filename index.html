@@ -68,7 +68,7 @@
         </div>
 
         <!--Friends list-->
-        <div class="card mx-4 my-4" style="height: 80%; width: 60%; justify-content: center;">
+        <div class="card mx-4 my-4" style="height: 80%; width: 70%; justify-content: center;">
           <div id="friend-list" class="card-body px-4">
 
           </div>
@@ -116,8 +116,14 @@
 
   <div id="settings-page" class="row" style="display: none;">
 
-    <div id="settings" class="col-6">
-      <div class="card my-5 mx-4" style="height: 34rem;">
+    <div id="settings" class="col-4">
+      <div class="my-5" id="log-out">
+        <button id="log-out-btn" class="mx-4" type="btn"><i class="material-icons" aria-hidden="true">exit_to_app</i>
+          Sign Out</button>
+        <button id="go-back-vibe" class="mx-4" type="btn"><i class="material-icons" aria-hidden="true">arrow_back</i>
+          Back</button>
+      </div>
+      <div class="card my-5 mx-4" style="width: 100%; height: 70%;">
         <div class="card-body my-3" align="center">
 
           <!--Profile sinppet btn-->
@@ -148,19 +154,14 @@
           </div>
 
           <!--Logout and back btn-->
-          <div style="margin-top: 14rem;" id="log-out">
-            <button id="log-out-btn" class="mx-4" type="btn"><i class="material-icons"
-                aria-hidden="true">exit_to_app</i> Sign Out</button>
-            <button id="go-back-vibe" class="mx-4" type="btn"><i class="material-icons"
-                aria-hidden="true">arrow_back</i> Back</button>
-          </div>
+
 
         </div>
       </div>
     </div>
 
     <!--Profile Settings Side-->
-    <div id="profile-settings" class="col-6 my-5" style="height: 35rem;" align="center">
+    <div id="profile-settings" class="col-8 my-5" style="height: 35rem;" align="center">
       <h5 class="mr-5" align="right">
         profileSettings
       </h5>
@@ -177,15 +178,11 @@
       <div class="ml-4 my-3" align="center">
         <button id="copy-my-key" class="mx-2" type="btn"><i class="material-icons" aria-hidden="true">content_copy</i>
           Copy Key</button>
-        <button id="download-my-key" class="mx-2" type="btn"><i class="material-icons" aria-hidden="true">get_app</i>
-          Download</button>
       </div>
       <hr>
       <h6>Online Address</h6>
       <div>
-        <p
-          style="text-align: left; width: 24rem; margin-right: 2rem;margin-left: 2rem;margin-top: auto; text-overflow: ellipsis;">
-          http://localhost:8080?chatWith=W7c8c2kaB40hN97Q_5f4VknCz73qfOj3dHWTEfvVrQY.UoN7mIzzh8H7CqeRvjRxbh5wu6R6OBnXtQDKwIeHAbs
+        <p id="my-user-id" style="text-overflow: ellipsis;">
         </p>
       </div>
 
@@ -200,7 +197,7 @@
 
 
     <!--Network Settings Side-->
-    <div id="network-settings" class="col-6 my-5" align="center" style="display: none; height: 35rem;">
+    <div id="network-settings" class="col-8 my-5" align="center" style="display: none; height: 35rem;">
       <h5 class="mr-5" align="right">
         networkSettings
       </h5>
@@ -229,7 +226,7 @@
 
 
     <!--Audio Settings Side-->
-    <div id="audio-settings" class="col-6 my-5" align="center" style="display: none; height: 35rem;">
+    <div id="audio-settings" class="col-8 my-5" align="center" style="display: none; height: 35rem;">
       <h5 class="mr-5" align="right">
         audioSettings
       </h5>

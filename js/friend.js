@@ -152,7 +152,7 @@ function onPasteFriendLink(event) {
 		return;
 	}
 	var friendId =
-		helpers.getUrlParameter("chatWith", s[1]) ||
+		helpers.getUrlParameter("vibeWith", s[1]) ||
 		helpers.getUrlParameter("channelId", s[1]);
 
 	if (friendId) {
