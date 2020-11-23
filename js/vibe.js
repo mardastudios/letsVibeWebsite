@@ -40,6 +40,21 @@ function showVibeVideo(pub) {
 			console.log("HERE IT IS", videoId);
 			session.vibeYoutube(videoId);
 		});
+	gun.user(pub)
+		.get("profile")
+		.get("status")
+		.on((status) => {
+			if (status == 1 || status == 3) {
+				window.player.playVideo();
+			}
+			if (status == 2) {
+				window.player.pauseVideo();
+			}
+			if (status == -1 || status == 5) {
+				window.player.stopVideo();
+			}
+			console.log(pub, "- is: ", status);
+		});
 }
 
 function stopUserMedia() {
@@ -82,8 +97,8 @@ function resetView() {
 		'<button  style="height:100%" id="start-vibe" type="btn" disabled><i class="material-icons" aria-hidden="true">play_arrow</i> Start Vibe</button>'
 	);
 	$(".callee").empty();
-	$("#vibe-action").empty();
-	$("#vibe-action").append(start_vibe);
+	$("#answer-vibe").remove();
+	$("#reject-action").replaceWith(start_vibe);
 }
 
 function rejectCall(pub) {

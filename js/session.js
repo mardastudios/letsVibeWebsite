@@ -133,27 +133,6 @@ function getId(url) {
 	return match && match[2].length === 11 ? match[2] : null;
 }
 
-function callPlayer(frame_id, func, args) {
-	if (window.jQuery && frame_id instanceof jQuery)
-		frame_id = frame_id.get(0).id;
-	var iframe = document.getElementById(frame_id);
-	if (iframe && iframe.tagName.toUpperCase() != "IFRAME") {
-		iframe = iframe.getElementsByTagName("iframe")[0];
-	}
-	if (iframe) {
-		// Frame exists,
-		iframe.contentWindow.postMessage(
-			JSON.stringify({
-				event: "command",
-				func: func,
-				args: args || [],
-				id: frame_id,
-			}),
-			"*"
-		);
-	}
-}
-
 function onPasteYouTube(event) {
 	var val = $(event.target).val() || event;
 	if (!val.length) {
@@ -166,39 +145,11 @@ function onPasteYouTube(event) {
 	$(event.target).val("");
 }
 
-async function vibeYoutube(videoId) {
-	var player;
-
+function vibeYoutube(videoId) {
+	gun.user().get("profile").get("watching").put(null);
 	gun.user().get("profile").get("watching").put(videoId);
-	gun.user()
-		.get("profile")
-		.get("watching")
-		.on((videoId) => {
-			console.log(videoId);
-		});
-
-	const iframeMarkup =
-		'<iframe id="player" width="560" height="315" src="//www.youtube.com/embed/' +
-		videoId +
-		'?enablejsapi=1?rel="0" frameborder="0" origin="https://letsvibe.io" allowfullscreen></iframe>';
-	$(".youtubeVideo").empty();
-	$(".youtubeVideo").append(iframeMarkup);
+	window.player.cueVideoById(videoId);
 	$("#vibe-notice").text("Successfully fetched the video ...");
-
-	var vibeStatus = gun.user().get("profile").get("watching").get("status");
-}
-
-function pauseVideo() {
-	// if state == 'hide', hide. Else: show video
-	var div = $(".youtubeVideo");
-	console.log(div);
-	var iframe = $("#player").get(0).contentWindow;
-	console.log(iframe);
-	iframe.postMessage(
-		'{"event":"command","func":"' + "pauseVideo" + '","args":""}',
-		"*"
-	);
-	console.log("posted");
 }
 
 function init() {
@@ -213,7 +164,6 @@ function init() {
 
 	$("#my-link").on("click", () => {
 		console.log("PAUSE");
-		pauseVideo();
 	});
 	$("#youtube-url").on("input", onPasteYouTube);
 	$("#goto-signin").on("click", function () {
@@ -289,9 +239,9 @@ function init() {
 		console.log("Friend Link: ", getFriendLink());
 	});
 
-	// $("#my-link").click(() => {
-	// 	helpers.copyToClipboard(getFriendLink());
-	// });
+	$("#my-link").click(() => {
+		helpers.copyToClipboard(getFriendLink());
+	});
 }
 
 export default {

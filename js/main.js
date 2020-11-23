@@ -6,7 +6,6 @@ Gun.log.off = true;
 //Gun instance created here
 var gun = Gun(["https://gun-us.herokuapp.com/gun"]);
 var player;
-window.player = player;
 window.gun = gun;
 
 var startPage;

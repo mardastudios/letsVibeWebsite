@@ -1,27 +1,24 @@
-function onYouTubeIframeAPIReady() {
+window.onYouTubeIframeAPIReady = function onYouTubeIframeAPIReady() {
 	console.log("YOUTUBE LOADED");
 
-	player = new YT.Player("vibe-video", {
+	window.player = new YT.Player("player", {
+		height: "315",
+		width: "590",
+		videoId: "WdBQ7q9z7rE",
+		playerVars: { autoplay: 0, controls: 1, rel: 0 },
 		events: {
 			onReady: onPlayerReady,
 			onStateChange: onPlayerStateChange,
 		},
 	});
-}
+};
 
 // 4. The API will call this function when the video player is ready.
-async function onPlayerReady(event) {
+window.onPlayerReady = function onPlayerReady(event) {
 	console.log("PRINT");
-	await event.target.playVideo();
-}
+};
 
-// 5. The API calls this function when the player's state changes.
-//    The function indicates that when playing a video (state=1),
-//    the player should play for six seconds and then stop.
 var done = false;
-function onPlayerStateChange(event) {
-	console.log(event.data);
-}
-function stopVideo() {
-	player.stopVideo();
-}
+window.onPlayerStateChange = function onPlayerStateChange(event) {
+	gun.user().get("profile").get("status").put(event.data);
+};

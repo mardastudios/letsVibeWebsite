@@ -137,13 +137,6 @@ function addFriend(channel) {
 		}
 	});
 
-	gun.user(pub)
-		.get("profile")
-		.get("watching")
-		.on((videoId) => {
-			console.log(videoId);
-		});
-
 	friends[pub].onTheir("call", (call) => vibe.onCallMessage(pub, call));
 }
 
