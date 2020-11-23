@@ -45,7 +45,7 @@ async function createFriendLink() {
 	latestChatLink = await iris.Channel.createChatLink(
 		gun,
 		key,
-		"http://localhost:8080"
+		"https://letsvibe.io"
 	);
 }
 
@@ -81,7 +81,7 @@ function login(k) {
 	setOurOnlineStatus();
 	iris.Channel.getChannels(gun, key, addFriend);
 	var chatId =
-		helpers.getUrlParameter("chatWith") ||
+		helpers.getUrlParameter("vibeWith") ||
 		helpers.getUrlParameter("channelId");
 	var inviter = helpers.getUrlParameter("inviter");
 	function go() {
@@ -148,7 +148,7 @@ function onPasteYouTube(event) {
 function vibeYoutube(videoId) {
 	gun.user().get("profile").get("watching").put(null);
 	gun.user().get("profile").get("watching").put(videoId);
-	window.player.cueVideoById(videoId);
+	window.player.cueVideoById(videoId, 0);
 	$("#vibe-notice").text("Successfully fetched the video ...");
 }
 
@@ -157,6 +157,7 @@ function init() {
 	if (localStorageKey) {
 		console.log("ALREADY LOGGED IN");
 		login(JSON.parse(localStorageKey));
+		gun.user().get("call").put(null);
 	} else {
 		console.log("NO ACCOUNT ACTIVE\n CREATE ONE");
 		createAccount();

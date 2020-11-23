@@ -70,9 +70,7 @@ function onCallMessage(pub, call) {
 }
 
 function cancelCall(pub) {
-	stopUserMedia(pub);
 	friends[pub].put("call", null);
-	friends[pub].pc && friends[pub].pc.close();
 	friends[pub].pc = null;
 }
 
@@ -86,15 +84,15 @@ function endCall(pub) {
 
 function closeIncomingCall() {
 	var start_vibe = $(
-		'<button style="height:100%" id="start-vibe" type="btn" disabled><i class="material-icons" aria-hidden="true">play_arrow</i> Start Vibe</button>'
+		'<button id="start-vibe" type="btn" disabled><i class="material-icons" aria-hidden="true">play_arrow</i> Start Vibe</button>'
 	);
-	$("#vibe-action").empty();
-	$("#vibe-action").append(start_vibe);
+	$("#answer-vibe").remove();
+	$("#reject-vibe").replaceWith(start_vibe);
 }
 
 function resetView() {
 	var start_vibe = $(
-		'<button  style="height:100%" id="start-vibe" type="btn" disabled><i class="material-icons" aria-hidden="true">play_arrow</i> Start Vibe</button>'
+		'<button id="start-vibe" type="btn" disabled><i class="material-icons" aria-hidden="true">play_arrow</i> Start Vibe</button>'
 	);
 	$(".callee").empty();
 	$("#answer-vibe").remove();
@@ -103,16 +101,19 @@ function resetView() {
 
 function rejectCall(pub) {
 	console.log("REJECTED");
-	friends[pub].rejectedTime = new Date();
+	resetView();
 	closeIncomingCall();
+	friends[pub].pc && friends[pub].pc.close();
 	friends[pub].put("call", null);
+	friends[pub].pc = null;
 }
 async function answerCall(pub) {
 	var end_vibe = $(
-		'<button style="height:100%" id="end-vibe" type="btn"><i class="material-icons" aria-hidden="true">call_end</i> End Vibe</button>'
+		'<button id="end-vibe" type="btn"><i class="material-icons" aria-hidden="true">call_end</i> End Vibe</button>'
 	);
-	$("#vibe-action").empty();
-	$("#vibe-action").append(end_vibe);
+
+	$("#reject-vibe").remove();
+	$("#answer-vibe").replaceWith(end_vibe);
 	$("#end-vibe").click(() => endCall(pub));
 	await initConnection(false, pub);
 }
@@ -272,12 +273,30 @@ async function initConnection(createOffer, pub) {
 		);
 		switch (friends[pub].pc.iceConnectionState) {
 			case "connected":
+				console.log("Connected");
+				var end_vibe = $(
+					'<button id="end-vibe" type="btn"><i class="material-icons" aria-hidden="true">call_end</i> End Vibe</button>'
+				);
+
+				$("#start-vibe").replaceWith(end_vibe);
+				$("#end-vibe").click(() => endCall(pub));
+
 				break;
 			case "disconnected":
+				console.log("Disconnected");
+				friends[pub].pc & friends[pub].pc.close();
+				friends[pub].put("call", null);
+				var start_vibe = $(
+					'<button id="start-vibe" type="btn" disabled><i class="material-icons" aria-hidden="true">play_arrow</i> Start Vibe</button>'
+				);
+
+				$("#start-vibe").replaceWith(start_vibe);
+
 				break;
 			case "new":
 				break;
 			case "failed":
+				console.log("Failed");
 				break;
 			case "closed":
 				break;

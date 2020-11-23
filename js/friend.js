@@ -85,6 +85,7 @@ function addFriend(channel) {
 	// 	});
 
 	friends[pub].online = {};
+	friends[pub].put("call", null);
 
 	iris.Channel.getOnline(gun, pub, (online) => {
 		friends[pub].online = online;
