@@ -206,8 +206,9 @@ async function initConnection(createOffer, pub) {
 	if (createOffer) {
 		await createOfferFn();
 	}
+
 	friends[pub].onTheir("sdp", async (sdp) => {
-		friends[pub].pc.setRemoteDescription(
+		await friends[pub].pc.setRemoteDescription(
 			new RTCSessionDescription(sdp.data)
 		);
 		console.log("got their sdp", sdp.data);
@@ -313,12 +314,13 @@ async function initConnection(createOffer, pub) {
 		if (remoteAudio[0].srcObject !== event.streams[0]) {
 			//createResonanceScence(event.streams[0]);
 			remoteAudio[0].muted = true;
-			createResonanceScence(event.streams[0]);
+
 			remoteAudio[0].srcObject = event.streams[0];
 			remoteAudio[0].onloadedmetadata = function () {
 				remoteAudio[0].play();
 				console.log("metadata loaded");
 			};
+			createResonanceScence(event.streams[0]);
 			console.log("received remote stream", event);
 		}
 	};

@@ -143,8 +143,8 @@ nav a.btn {
 	border-radius: 1rem;
 	background: linear-gradient(
 		180deg,
-		rgba(255, 87, 128, 1) 0%,
-		rgba(255, 87, 128, 0.8) 100%
+		rgba(119, 130, 253, 1) 0%,
+		rgba(119, 130, 253, 0.8) 100%
 	);
 }
 #info-side .card {

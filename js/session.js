@@ -90,8 +90,8 @@ function login(k) {
 		}
 		window.history.pushState(
 			{},
-			"VIBE",
-			"/" +
+			"letsvibe.io",
+			"" +
 				window.location.href
 					.substring(window.location.href.lastIndexOf("/") + 1)
 					.split("?")[0]
@@ -163,9 +163,6 @@ function init() {
 		createAccount();
 	}
 
-	$("#my-link").on("click", () => {
-		console.log("PAUSE");
-	});
 	$("#youtube-url").on("input", onPasteYouTube);
 	$("#goto-signin").on("click", function () {
 		$("#sign-in").show().siblings("div#sign-up").hide();
@@ -175,8 +172,9 @@ function init() {
 		$("#sign-up").show().siblings("div#sign-in").hide();
 	});
 
-	$("#my-user-profile").on("click", function () {
-		$("#settings-page").show().siblings("div#vibe-page").hide();
+	$(".profile-avatar").on("click", function () {
+		console.log("settings");
+		$("#settings-page").show().siblings("#vibe-page").hide();
 	});
 
 	$("#go-back-vibe").on("click", function () {
@@ -242,6 +240,8 @@ function init() {
 
 	$("#my-link").click(() => {
 		helpers.copyToClipboard(getFriendLink());
+		window.source.setPosition(3, 0, 0);
+		console.log(window.source.getPosition());
 	});
 }
 
