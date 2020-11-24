@@ -20,6 +20,6 @@ export default {
 		}
 	},
 	getUserFriendLink: (pub) => {
-		return "https://letsvibe.io/vibeWith=" + pub;
+		return "https://letsvibe.io?vibeWith=" + pub;
 	},
 };
