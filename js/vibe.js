@@ -70,6 +70,7 @@ function onCallMessage(pub, call) {
 }
 
 function cancelCall(pub) {
+	friends[pub].pc && friends[pub].pc.close();
 	friends[pub].put("call", null);
 	friends[pub].pc = null;
 }
@@ -79,7 +80,10 @@ function endCall(pub) {
 	stopUserMedia(pub);
 	friends[pub].put("call", null);
 	friends[pub].pc = null;
-	resetView();
+	var end_vibe = $(
+		'<button id="end-vibe" type="btn"><i class="material-icons" aria-hidden="true">call_end</i> End Vibe</button>'
+	);
+	$("#start-vibe").replaceWith(end_vibe);
 }
 
 function closeIncomingCall() {
@@ -96,16 +100,14 @@ function resetView() {
 	);
 	$(".callee").empty();
 	$("#answer-vibe").remove();
-	$("#reject-action").replaceWith(start_vibe);
+	$("#reject-vibe").replaceWith(start_vibe);
 }
 
 function rejectCall(pub) {
 	console.log("REJECTED");
 	resetView();
 	closeIncomingCall();
-	friends[pub].pc && friends[pub].pc.close();
-	friends[pub].put("call", null);
-	friends[pub].pc = null;
+	cancelCall;
 }
 async function answerCall(pub) {
 	var end_vibe = $(
@@ -223,6 +225,7 @@ async function initConnection(createOffer, pub) {
 			}
 		});
 	});
+	console.log(friends[pub].pc);
 	friends[pub].pc.onicecandidate =
 		friends[pub].pc.onicecandidate ||
 		(({ candidate }) => {
@@ -295,11 +298,13 @@ async function initConnection(createOffer, pub) {
 
 				break;
 			case "new":
+				console.log("New");
 				break;
 			case "failed":
 				console.log("Failed");
 				break;
 			case "closed":
+				console.log("Closed");
 				break;
 			default:
 				console.log(
