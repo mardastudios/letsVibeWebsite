@@ -1,10 +1,11 @@
-import { friends } from "./friend.js";
+import friend, { friends } from "./friend.js";
 import { gun } from "./main.js";
 import session from "./session.js";
 var ourIceCandidates;
 var userMediaStream;
 var localAudio = $(".localAudio");
 var remoteAudio = $(".remoteAudio");
+
 async function addStreamtoPeerConnection(pc) {
 	var constraints = { audio: true, video: false };
 	userMediaStream = await navigator.mediaDevices.getUserMedia(constraints);
@@ -62,6 +63,7 @@ function stopUserMedia() {
 }
 
 function onCallMessage(pub, call) {
+	friends[pub].put("call", null);
 	if (call.offer) {
 		console.log("incomming call from ", pub, call);
 		showIncomingCall(pub);
@@ -77,13 +79,13 @@ function cancelCall(pub) {
 
 function endCall(pub) {
 	friends[pub].pc && friends[pub].pc.close();
-	stopUserMedia(pub);
 	friends[pub].put("call", null);
 	friends[pub].pc = null;
 	var end_vibe = $(
 		'<button id="end-vibe" type="btn"><i class="material-icons" aria-hidden="true">call_end</i> End Vibe</button>'
 	);
 	$("#start-vibe").replaceWith(end_vibe);
+	stopUserMedia(pub);
 }
 
 function closeIncomingCall() {
@@ -210,9 +212,23 @@ async function initConnection(createOffer, pub) {
 	}
 
 	friends[pub].onTheir("sdp", async (sdp) => {
-		await friends[pub].pc.setRemoteDescription(
-			new RTCSessionDescription(sdp.data)
-		);
+		if (!friends[pub].pc) {
+			console.log(1);
+			return;
+		}
+		if (createOffer && friends[pub].pc.signalingState === "stable") {
+			console.log(2);
+			return;
+		}
+		if (
+			sdp.data &&
+			sdp.time &&
+			new Date(sdp.time).getTime() < new Date() - 5000
+		) {
+			console.log(3);
+		}
+		friends[pub].pc.setRemoteDescription(sdp.data);
+		console.log(4);
 		console.log("got their sdp", sdp.data);
 	});
 	friends[pub].onTheir("icecandidates", (c) => {
