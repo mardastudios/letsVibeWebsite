@@ -18,382 +18,472 @@
 </head>
 
 <body>
+  <div class="bg"></div>
 
 
-  <div id="start-page" class="container">
-    <div class="row-justify-content-center Welcome-pg">
-      <h1 class="mb-5 display-4" style="text-align: center; width: 100%">
-        Welcome to letsVibe
-      </h1>
-      <form class="row" id="user-signup-form" style="justify-content: center">
-        <div class="text_input my-3" style="width: 49%">
-          <i class="material-icons" area-hidden="true" style="color: #888">person_outline</i>
-          <input type="text" id="username" placeholder=" Username" />
-        </div>
-        <button class="mt-4 ml-3" style="height: 100%" id="sign-up-btn" type="btn">
-          <i class="material-icons" aria-hidden="true">arrow_forward</i> VIBE
-        </button>
-      </form>
-    </div>
-  </div>
+  <nav id="nav-bar" class="navbar" style="display: none;">
+    <ul class="navbar-nav">
+      <li class="logo">
+        <div href="#" class="nav-link">
 
-
-
-
-
-
-
-  <div id="vibe-page" style="display:none; width: 100%; height: auto!important;">
-    <div id="header-content"
-      class="nav-header d-flex flex-column flex-md-row align-items-center pl-3 pr-3 pt-2 bg-white border-bottom box-shadow"
-      style="display: none; width: 100%;">
-      <h5 class="my-0 mr-md-auto ml-3 font-weight-normal">letsVibe</h5>
-      <p class="mr-3" id="my-username" style="font-family: Sansation-Bold;"></p>
-
-      <img align="right" width="auto" height="75px" class="profile-avatar" alt="profile-avatar" style="border: none" />
-
-    </div>
-
-    <div id="main-content" class="row" style="width: 100%;">
-      <!--Friends page-->
-      <div id="friends" class="col-6 my-5">
-        <!--Top panel with title and user profile-->
-
-        <div style="
-							display: flex;
-							align-items: center;
-							justify-content: center;
-						">
-          <h4 text-align="left">Friends</h4>
+          <svg viewBox="0 0 73 94" aria-hidden="true" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M52.9693 84.1521H19.7856C19.1623 84.1521 18.5927 84.5043 18.314 85.0617L15.4052 90.8786C14.8584 91.9728 15.6539 93.2601 16.8771 93.2601H23.3228H49.4324H55.8778C57.101 93.2601 57.8964 91.9728 57.3496 90.8786L54.4411 85.0617C54.1624 84.5043 53.5926 84.1521 52.9693 84.1521Z"
+              fill="#D1D8DD" />
+            <path
+              d="M35.2018 22.4764C38.0693 20.9705 40.8752 19.3682 43.6759 17.7582C46.4681 16.1351 49.2527 14.5002 52.0082 12.8198C54.7646 11.1406 57.5128 9.44894 60.2388 7.72298L64.3231 5.1263C65.7036 4.29049 67.0239 3.36115 67.7629 1.52802C68.2238 0.384663 69.5241 -0.16848 70.6668 0.292385C71.8102 0.753248 72.3633 2.05326 71.9028 3.19661C71.5397 4.09709 70.6519 4.63082 69.7339 4.59196C67.7592 4.50452 66.3664 5.32091 65.0336 6.23079L60.9775 8.87119C58.2766 10.6363 55.5983 12.4364 52.9275 14.2486C50.2561 16.0595 47.6139 17.916 44.9793 19.7844C42.3534 21.6658 39.7321 23.5548 37.1728 25.5403C36.3749 26.1594 35.2261 26.0142 34.6071 25.2164C33.9881 24.4182 34.1329 23.2694 34.931 22.6504C35.0148 22.5857 35.1114 22.5247 35.2018 22.4764Z"
+              fill="#D1D8DD" />
+            <path
+              d="M35.5813 25.5403C33.022 23.5547 30.401 21.6657 27.7749 19.7843C25.1402 17.916 22.498 16.0595 19.8266 14.2485C17.1561 12.4363 14.4775 10.6366 11.7767 8.87114L7.72057 6.23072C6.38777 5.32084 4.99487 4.50445 3.02026 4.59189C1.78886 4.64654 0.746581 3.69263 0.691933 2.46093C0.637285 1.22983 1.59122 0.187269 2.82262 0.132622C3.79262 0.0898132 4.64632 0.676674 4.99121 1.52797C5.73017 3.3611 7.05055 4.29042 8.43102 5.12623L12.5153 7.72293C15.2414 9.4492 17.9898 11.1405 20.7459 12.8197C23.5014 14.5002 26.286 16.1351 29.0782 17.7581C31.8792 19.3681 34.6848 20.9705 37.5523 22.4763C38.4467 22.946 38.7906 24.0514 38.321 24.9458C37.8516 25.8399 36.7459 26.1839 35.8521 25.7145C35.758 25.6654 35.6627 25.6025 35.5813 25.5403Z"
+              fill="#D1D8DD" />
+            <path
+              d="M64.6665 84.208H8.19084C3.83298 84.208 0.300293 80.6753 0.300293 76.3175V30.1642C0.300293 25.8064 3.83298 22.2737 8.19084 22.2737H64.6665C69.0243 22.2737 72.557 25.8064 72.557 30.1642V76.3175C72.557 80.6753 69.0243 84.208 64.6665 84.208Z"
+              fill="url(#paint0_linear)" />
+            <path
+              d="M13.0471 56.9573C13.7421 48.4064 14.6334 41.1018 15.7021 41.0969C17.7016 41.0878 19.0159 66.6239 21.2917 66.5993C23.1239 66.5792 24.045 50.0079 26.2176 50.0051C28.0534 50.003 29.048 61.8309 31.4228 61.848C33.3843 61.8622 34.3483 53.8035 36.8378 53.7783C38.8664 53.7576 39.6513 59.0952 42.1481 59.1584C44.2778 59.2121 45.0201 55.3625 47.5278 55.3154C49.6199 55.2759 49.9281 57.94 52.4188 58.11C54.5468 58.2552 55.4308 56.3862 58.2877 56.4333C59.3904 56.4515 60.2884 56.7469 60.8729 56.9922"
+              stroke="url(#paint1_linear)" stroke-width="3" stroke-miterlimit="10" stroke-linecap="round" />
+            <defs>
+              <linearGradient id="paint0_linear" x1="75.5" y1="86" x2="5.50001" y2="25.5"
+                gradientUnits="userSpaceOnUse">
+                <stop stop-color="white" />
+                <stop offset="0.489583" stop-color="white" />
+                <stop offset="1" stop-color="#D1D7DD" />
+              </linearGradient>
+              <linearGradient id="paint1_linear" x1="48" y1="70.5" x2="5.5" y2="54" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#221122" />
+                <stop offset="1" stop-color="#332533" />
+              </linearGradient>
+            </defs>
+          </svg>
+          <span class="link-text">
+            <h5>letsVibe</h5>
+          </span>
         </div>
 
-        <!--Friends list-->
-        <div class="card mx-4 my-4" style="height: 80%; width: 70%; justify-content: center;">
-          <div id="friend-list" class="card-body px-4">
+      </li>
 
-          </div>
+      <li class="nav-item">
+        <div href="#" class="nav-link" id="friends-tab" style="cursor: pointer;">
+          <ion-icon name="people" size="large"></ion-icon>
+          <span class="link-text">Friends</span>
         </div>
+      </li>
+      <li class="nav-item">
+        <div href="#" class="nav-link" id="room-tab" style="cursor: pointer;">
+          <ion-icon name="cube" size="large"></ion-icon>
+          <span class="link-text">Room</span>
+        </div>
+      </li>
+      <li class="nav-item">
+        <div href="#" class="nav-link" style="cursor: pointer;">
+          <ion-icon name="settings" size="large" id="settings-tab"></ion-icon>
+          <span class="link-text">Settings</span>
+        </div>
+      </li>
+      <li class="nav-item">
 
-        <!--Add Frind snippet-->
+        <div id="user-avatar" class="nav-link" style="cursor: pointer; display: flex; flex-direction: column">
+          <img height="100%" width="100%" class="profile-avatar" alt="profile-avatar" style="border: none; " />
 
-        <div class="row my-4 px-4" style="max-height: initial;" id="add-friend-snippet1">
-          <div class="input-group mt-4 mx-4 mb-2" style="width: 50%; height:100%">
-            <i class="material-icons" area-hidden="true" style="color: #888">content_paste</i>
-            <input id="friend-url" type="text" placeholder=" Paste their user link..." />
-          </div>
-          <div style="width: max-content;">
-            <button class=" mt-4 mx-1 mb-2" id="my-link" type="btn">
+          <div class="link-text" style="justify-content: center;">
+            <span id="my-username" class="link-text"
+              style="font-family: Sarina; text-align: center; margin-top:0.5rem"></span>
+            <button id="my-link" type="btn">
               <i class="material-icons" aria-hidden="true">content_copy</i>
-              Copy your link
+
+            </button>
+            <button id="log-out-btn" type="btn"><i class="material-icons" aria-hidden="true">exit_to_app</i>
             </button>
           </div>
         </div>
-      </div>
+      </li>
+    </ul>
 
-      <div id="youtube-side" class="col-6 align-self-left" style="justify-content: left;">
-        <audio class="localAudio"></audio>
-        <audio class="remoteAudio"></audio>
-        <div class="input-group mx-4 my-4" style="width: 70%; align-self: center;">
-          <i class="material-icons" area-hidden="true" style="color: #888;">ondemand_video</i>
-          <input id="youtube-url" type="text" placeholder=" YouTube URL...">
-        </div>
-        <div class="youtubeVideo">
-          <div id="player"></div>
-
-        </div>
+  </nav>
+  <main>
 
 
-        <p id="vibe-notice" class="ml-5" style="text-align: left;">Waiting for YouTube Video ...</p>
 
-        <button id="start-vibe" type="btn" disabled=""><i class="material-icons" aria-hidden="true">play_arrow</i>
-          Start Vibe</button>
+
+
+
+    <div id="start-page" class="container">
+      <div class="row-justify-content-center Welcome-pg">
+        <h1 class="mb-5 display-4" style="text-align: center; width: 100%">
+          Welcome to letsVibe
+        </h1>
+        <form class="row" id="user-signup-form" style="justify-content: center">
+          <div class="text_input my-3" style="width: 49%">
+            <i class="material-icons" area-hidden="true" style="color: #888">person_outline</i>
+            <input type="text" id="username" placeholder=" Username" />
+          </div>
+          <button class="mt-4 ml-3" style="height: 100%" id="sign-up-btn" type="btn">
+            <i class="material-icons" aria-hidden="true">arrow_forward</i> VIBE
+          </button>
+        </form>
       </div>
     </div>
 
 
 
-  </div>
+    <!--Home Page-->
+    <div id="vibe-page" style="display:none; width: 100%; height: auto!important;">
 
-  <div id="settings-page" class="row" style="display: none;">
 
-    <div id="settings" class="col-4">
-      <div class="my-5" id="log-out">
-        <button id="log-out-btn" class="mx-4" type="btn"><i class="material-icons" aria-hidden="true">exit_to_app</i>
-          Sign Out</button>
-        <button id="go-back-vibe" class="mx-4" type="btn"><i class="material-icons" aria-hidden="true">arrow_back</i>
-          Back</button>
-      </div>
-      <div class="card my-5 mx-4" style="width: 100%; height: 70%;">
-        <div class="card-body my-3" align="center">
 
-          <!--Profile sinppet btn-->
-          <div class='profile-settings-btn'>
-            <div class='row' style='width: auto; height: auto; '>
-              <i class='material-icons my-2 mx-2' aria-hidden='true' style='color: #f2f2f2;'>person</i>
-              <h5 class="my-2" style=" margin-left: 0.5rem; color:#f2f2f2; font-family: Sansation-Bold;">Profile
-                Settings</h5>
+      <div id="main-content" class="row" style="width: 100%;">
+        <!--Friends page-->
+
+
+        <div id="youtube-side" class="col-8 align-self-left" style="justify-content: left;">
+          <audio class="localAudio"></audio>
+          <audio class="remoteAudio"></audio>
+          <div class="input-group mx-4 mb-4 mt-1" style="width: 70%; align-self: center;">
+            <i class="material-icons" area-hidden="true" style="color: #888;">ondemand_video</i>
+            <input id="youtube-url" type="text" placeholder=" YouTube URL...">
+          </div>
+          <div class="youtubeVideo">
+            <div id="player"></div>
+
+          </div>
+
+
+
+          <div id="vibes">
+
+            <button style="height: 100%;" id="start-vibe" type="btn" disabled=""><i class="material-icons"
+                aria-hidden="true">play_arrow</i>
+              Start Vibe</button>
+
+            <div id="friend-avatar">
             </div>
           </div>
+        </div>
 
-          <!--Audio sinppet btn-->
-          <div class='audio-settings-btn'>
-            <div class='row' style='width: auto; height: auto; '>
-              <i class='material-icons my-2 mx-2' aria-hidden='true' style='color: #f2f2f2;'>music_note</i>
-              <h5 class="my-2" style=" margin-left: 0.5rem; color:#f2f2f2; font-family: Sansation-Bold;">Audio
-                Settings</h5>
+
+        <div id="room-config" style="display: none;">
+
+          <canvas width="400rem" height="400rem" id="room">
+
+          </canvas>
+        </div>
+
+        <div class="col-4" id="friends">
+
+
+          <div id="profile">
+            <div>
+
+
+
             </div>
+            <h4 text-align="left">Friends</h4>
           </div>
 
-          <!--Network sinppet btn-->
-          <div class='network-settings-btn'>
-            <div class='row' style='width: auto; height: auto; '>
-              <i class='material-icons my-2 mx-2' aria-hidden='true' style='color: #f2f2f2;'>signal_cellular_alt</i>
-              <h5 class="my-2" style=" margin-left: 0.5rem; color:#f2f2f2; font-family: Sansation-Bold;">Network
-                Settings</h5>
+          <div id="friend-list">
+
+          </div>
+
+
+          <div style="margin-top: auto; margin-bottom:1rem" id="add-friend-snippet1">
+            <div class="input-group" style="width: 100%;">
+              <i class=" material-icons" area-hidden="true" style="color: #888">content_paste</i>
+              <input id="friend-url" type="text" placeholder=" Paste their user link..." />
             </div>
+
           </div>
-
-          <!--Logout and back btn-->
-
-
-        </div>
-      </div>
-    </div>
-
-    <!--Profile Settings Side-->
-    <div id="profile-settings" class="col-8 my-5" style="height: 35rem;" align="center">
-      <h5 class="mr-5" align="right">
-        profileSettings
-      </h5>
-      <hr>
-      <div id="profile-settings-avatar" class="my-3">
-        <img align="center" class="profile-avatar" alt="profile-avatar" style="width: 20%; height: auto; border:none;">
-      </div>
-
-      <button id="edit-avatar" class="" type="btn"><i class="material-icons" aria-hidden="true">create</i> Edit
-        Avatar</button>
-      <hr>
-      <h6>Private Key</h6>
-      <p>This is used for logging in and will have more info here..</p>
-      <div class="ml-4 my-3" align="center">
-        <button id="copy-my-key" class="mx-2" type="btn"><i class="material-icons" aria-hidden="true">content_copy</i>
-          Copy Key</button>
-      </div>
-      <hr>
-      <h6>Online Address</h6>
-      <div>
-        <p id="my-user-id" style="text-overflow: ellipsis;">
-        </p>
-      </div>
-
-      <p></p>
-
-      <hr>
-      <h6>Disclaimer</h6>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae culpa, reiciendis, iure ipsam eveniet,
-        molestiae natus quaerat repellat error repudiandae officiis neque atque tempora magni perspiciatis cum
-        mollitia velit maxime.</p>
-    </div>
-
-
-    <!--Network Settings Side-->
-    <div id="network-settings" class="col-8 my-5" align="center" style="display: none; height: 35rem;">
-      <h5 class="mr-5" align="right">
-        networkSettings
-      </h5>
-      <hr>
-      <h6>Peers</h6>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-      <div id="edit-username" class="row px-4" align="center">
-        <div align="center" class="input-group mt-4 ml-5 mr-4 mb-2" style="width: 60%;">
-          <i class="material-icons" area-hidden="true" style="color: #888;">people_alt</i>
-          <input id="peer-url" type="text" placeholder=" Add Peer URL here...">
-        </div>
-        <button id="save-username" class="mt-3" type="btn"><i class="material-icons" aria-hidden="true">add</i></button>
-      </div>
-      <hr>
-      <div id="peer-list">
-        <div class="row">
-          <p
-            style="text-align: left; width: 24rem; margin-right: 2rem;margin-left: 2rem;margin-top: auto; text-overflow: ellipsis;">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Error in atque numquam quia fugit veritatis?
-            Delectus aliquam tempora animi reprehenderit iure quas nesciunt magnam iusto similique harum. Obcaecati,
-            doloribus dignissimos.</p>
-          <i type="btn" class="material-icons" aria-hidden="true" style="color: #f2f2f2;">close</i>
         </div>
       </div>
     </div>
 
 
-    <!--Audio Settings Side-->
-    <div id="audio-settings" class="col-8 my-5" align="center" style="display: none; height: 35rem;">
-      <h5 class="mr-5" align="right">
-        audioSettings
-      </h5>
-      <hr>
-      <!--My Room-->
-      <h6>My Room Position</h6>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur libero temporibus dolor tempora quaerat
-        quo. Aperiam autem itaque quasi, voluptatibus libero voluptatem dolorem, doloremque laborum ipsa quidem
-        provident commodi cupiditate.</p>
-      <div class="row mt-4 mb-2 mx-4">
-        <h6 class="col-3" style="margin-top:2.75rem;">Position(x)</h6>
-        <div class="col-9">
-          <div id="my-xpos-value">
-          </div>
-          <input class="my-xcon-slider" type="range" min="-10" max="10" value="0">
-        </div>
-      </div>
-      <div class="row mt-4 mb-2 mx-4">
-        <h6 class="col-3" style="margin-top:2.75rem;">Position(y)</h6>
-        <div class="col-9">
-          <div id="my-ypos-value">
-          </div>
-          <input class="my-ycon-slider" type="range" min="-10" max="10" value="0">
-        </div>
-      </div>
-      <div class="row mt-4 mb-2 mx-4">
-        <h6 class="col-3" style="margin-top:2.75rem;">Position(z)</h6>
-        <div class="col-9">
-          <div id="my-zpos-value">
-          </div>
-          <input class="my-zcon-slider" type="range" min="-10" max="10" value="0">
-        </div>
-      </div>
-      <!--DEPRECIATED-->
 
-      <!-- <div class="audio-position-control">
+
+
+    </div>
+
+    <div id="settings-page" class="row" style="display: none;">
+
+      <div id="settings" class="col-4">
+
+        <div class="card my-5 mx-4" style="width: 100%; height: 70%;">
+          <div class="card-body my-3" align="center">
+
+            <!--Profile sinppet btn-->
+            <div class='profile-settings-btn'>
+              <div class='row' style='width: auto; height: auto; '>
+                <i class='material-icons my-2 mx-2' aria-hidden='true' style='color: #f2f2f2;'>person</i>
+                <h5 class="my-2" style=" margin-left: 0.5rem; color:#f2f2f2; font-family: Sansation-Bold;">Profile
+                  Settings</h5>
+              </div>
+            </div>
+
+            <!--Audio sinppet btn-->
+            <div class='audio-settings-btn'>
+              <div class='row' style='width: auto; height: auto; '>
+                <i class='material-icons my-2 mx-2' aria-hidden='true' style='color: #f2f2f2;'>music_note</i>
+                <h5 class="my-2" style=" margin-left: 0.5rem; color:#f2f2f2; font-family: Sansation-Bold;">Audio
+                  Settings</h5>
+              </div>
+            </div>
+
+            <!--Network sinppet btn-->
+            <div class='network-settings-btn'>
+              <div class='row' style='width: auto; height: auto; '>
+                <i class='material-icons my-2 mx-2' aria-hidden='true' style='color: #f2f2f2;'>signal_cellular_alt</i>
+                <h5 class="my-2" style=" margin-left: 0.5rem; color:#f2f2f2; font-family: Sansation-Bold;">Network
+                  Settings</h5>
+              </div>
+            </div>
+
+            <!--Logout and back btn-->
+
+
+          </div>
+        </div>
+      </div>
+
+      <!--Profile Settings Side-->
+      <div id="profile-settings" class="col-8 my-5" style="height: 35rem;" align="center">
+        <h5 class="mr-5" align="right">
+          profileSettings
+        </h5>
+        <hr>
+        <div id="profile-settings-avatar" class="my-3">
+          <img align="center" class="profile-avatar" alt="profile-avatar"
+            style="width: 20%; height: auto; border:none;">
+        </div>
+
+        <button id="edit-avatar" class="" type="btn"><i class="material-icons" aria-hidden="true">create</i> Edit
+          Avatar</button>
+        <hr>
+        <h6>Private Key</h6>
+        <p>This is used for logging in and will have more info here..</p>
+        <div class="ml-4 my-3" align="center">
+          <button id="copy-my-key" class="mx-2" type="btn"><i class="material-icons" aria-hidden="true">content_copy</i>
+            Copy Key</button>
+        </div>
+        <hr>
+        <h6>Online Address</h6>
+        <div>
+          <p id="my-user-id" style="text-overflow: ellipsis;">
+          </p>
+        </div>
+
+        <p></p>
+
+        <hr>
+        <h6>Disclaimer</h6>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae culpa, reiciendis, iure ipsam eveniet,
+          molestiae natus quaerat repellat error repudiandae officiis neque atque tempora magni perspiciatis cum
+          mollitia velit maxime.</p>
+      </div>
+
+
+      <!--Network Settings Side-->
+      <div id="network-settings" class="col-8 my-5" align="center" style="display: none; height: 35rem;">
+        <h5 class="mr-5" align="right">
+          networkSettings
+        </h5>
+        <hr>
+        <h6>Peers</h6>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        <div id="edit-username" class="row px-4" align="center">
+          <div align="center" class="input-group mt-4 ml-5 mr-4 mb-2" style="width: 60%;">
+            <i class="material-icons" area-hidden="true" style="color: #888;">people_alt</i>
+            <input id="peer-url" type="text" placeholder=" Add Peer URL here...">
+          </div>
+          <button id="save-username" class="mt-3" type="btn"><i class="material-icons"
+              aria-hidden="true">add</i></button>
+        </div>
+        <hr>
+        <div id="peer-list">
+          <div class="row">
+            <p
+              style="text-align: left; width: 24rem; margin-right: 2rem;margin-left: 2rem;margin-top: auto; text-overflow: ellipsis;">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Error in atque numquam quia fugit veritatis?
+              Delectus aliquam tempora animi reprehenderit iure quas nesciunt magnam iusto similique harum. Obcaecati,
+              doloribus dignissimos.</p>
+            <i type="btn" class="material-icons" aria-hidden="true" style="color: #f2f2f2;">close</i>
+          </div>
+        </div>
+      </div>
+
+
+      <!--Audio Settings Side-->
+      <div id="audio-settings" class="col-8 my-5" align="center" style="display: none; height: 35rem;">
+        <h5 class="mr-5" align="right">
+          audioSettings
+        </h5>
+        <hr>
+        <!--My Room-->
+        <h6>My Room Position</h6>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur libero temporibus dolor tempora quaerat
+          quo. Aperiam autem itaque quasi, voluptatibus libero voluptatem dolorem, doloremque laborum ipsa quidem
+          provident commodi cupiditate.</p>
+        <div class="row mt-4 mb-2 mx-4">
+          <h6 class="col-3" style="margin-top:2.75rem;">Position(x)</h6>
+          <div class="col-9">
+            <div id="my-xpos-value">
+            </div>
+            <input class="my-xcon-slider" type="range" min="-10" max="10" value="0">
+          </div>
+        </div>
+        <div class="row mt-4 mb-2 mx-4">
+          <h6 class="col-3" style="margin-top:2.75rem;">Position(y)</h6>
+          <div class="col-9">
+            <div id="my-ypos-value">
+            </div>
+            <input class="my-ycon-slider" type="range" min="-10" max="10" value="0">
+          </div>
+        </div>
+        <div class="row mt-4 mb-2 mx-4">
+          <h6 class="col-3" style="margin-top:2.75rem;">Position(z)</h6>
+          <div class="col-9">
+            <div id="my-zpos-value">
+            </div>
+            <input class="my-zcon-slider" type="range" min="-10" max="10" value="0">
+          </div>
+        </div>
+        <!--DEPRECIATED-->
+
+        <!-- <div class="audio-position-control">
               <div id="my-room-pos" class="control-cursor"></div>
           </div>
           <p id="room-position"></p>
           <hr> -->
 
-      <!--My Friend's-->
-      <h6>My Friend's Position</h6>
-      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vero reiciendis consectetur maiores cupiditate,
-        eum quia tempora voluptas placeat quas nesciunt! Harum accusantium maxime at dicta nostrum reprehenderit eos
-        deserunt? Id!</p>
-      <div class="row mt-4 mb-2 mx-4">
-        <h6 class="col-3" style="margin-top:2.75rem;">Position(x)</h6>
-        <div class="col-9">
-          <div id="friend-xpos-value">
-          </div>
-          <input class="friend-xcon-slider" type="range" min="-10" max="10" value="0">
-        </div>
-      </div>
-      <div class="row mt-4 mb-2 mx-4">
-        <h6 class="col-3" style="margin-top:2.75rem;">Position(y)</h6>
-        <div class="col-9">
-          <div id="friend-ypos-value">
-          </div>
-          <input class="friend-ycon-slider" type="range" min="-10" max="10" value="0">
-        </div>
-      </div>
-      <div class="row mt-4 mb-2 mx-4">
-        <h6 class="col-3" style="margin-top:2.75rem;">Position(z)</h6>
-        <div class="col-9">
-          <div id="friend-zpos-value">
-          </div>
-          <input class="friend-zcon-slider" type="range" min="-10" max="10" value="0">
-        </div>
-      </div>
-      <hr>
-
-      <!--Movie-->
-      <h6>My TV Position</h6>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur libero temporibus dolor tempora quaerat
-        quo. Aperiam autem itaque quasi, voluptatibus libero voluptatem dolorem, doloremque laborum ipsa quidem
-        provident commodi cupiditate.</p>
-      <div class="row mt-4 mb-2 mx-4">
-        <h6 class="col-3" style="margin-top:2.75rem;">Position(x)</h6>
-        <div class="col-9">
-          <div id="tv-xpos-value">
-          </div>
-          <input class="tv-xcon-slider" type="range" min="-10" max="10" value="0">
-        </div>
-      </div>
-      <div class="row mt-4 mb-2 mx-4">
-        <h6 class="col-3" style="margin-top:2.75rem;">Position(y)</h6>
-        <div class="col-9">
-          <div id="tv-ypos-value">
-          </div>
-          <input class="tv-ycon-slider" type="range" min="-10" max="10" value="0">
-        </div>
-      </div>
-      <div class="row mt-4 mb-2 mx-4">
-        <h6 class="col-3" style="margin-top:2.75rem;">Position(z)</h6>
-        <div class="col-9">
-          <div id="tv-zpos-value">
-          </div>
-          <input class="tv-zcon-slider" type="range" min="-10" max="10" value="0">
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!--Edit Avatar Page-->
-  <div id="edit-page" class="row" style="display: none;">
-
-    <div id="user-preview" class="col-6">
-      <div class="card my-5 mx-4" style="height: 34rem;">
-        <div class="card-body my-3" align="center">
-
-          <!--User preview-->
-          <div id="my-edit-profile">
-            <p id="my-username" style="margin: 1.5rem; padding-left: 2.5rem; font-family: Sansation-Bold;"></p>
-            <img class="profile-avatar" alt="profile-avatar" style="width: 40%; height: auto; border:none;">
-          </div>
-          <h3 id="my-edit-username" class="mt-3"></h3>
-          <div id="edit-username" class="row px-4" align="center">
-            <div class="input-group mt-4 mx-4 mb-2" style="width: 100%;">
-              <i class="material-icons" area-hidden="true" style="color: #888;">person_outline</i>
-              <input id="username-url" type="text" placeholder="Edit Username">
+        <!--My Friend's-->
+        <h6>My Friend's Position</h6>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vero reiciendis consectetur maiores cupiditate,
+          eum quia tempora voluptas placeat quas nesciunt! Harum accusantium maxime at dicta nostrum reprehenderit eos
+          deserunt? Id!</p>
+        <div class="row mt-4 mb-2 mx-4">
+          <h6 class="col-3" style="margin-top:2.75rem;">Position(x)</h6>
+          <div class="col-9">
+            <div id="friend-xpos-value">
             </div>
+            <input class="friend-xcon-slider" type="range" min="-10" max="10" value="0">
           </div>
-          <!--Logout and back btn-->
-          <div class="mt-4" id="change-made">
-            <button id="save-all" class="mx-4" type="btn"><i class="material-icons" aria-hidden="true">exit_to_app</i>
-              Save</button>
-            <button id="discard-all" class="mx-4" type="btn"><i class="material-icons" aria-hidden="true">arrow_back</i>
-              Cancel</button>
+        </div>
+        <div class="row mt-4 mb-2 mx-4">
+          <h6 class="col-3" style="margin-top:2.75rem;">Position(y)</h6>
+          <div class="col-9">
+            <div id="friend-ypos-value">
+            </div>
+            <input class="friend-ycon-slider" type="range" min="-10" max="10" value="0">
           </div>
+        </div>
+        <div class="row mt-4 mb-2 mx-4">
+          <h6 class="col-3" style="margin-top:2.75rem;">Position(z)</h6>
+          <div class="col-9">
+            <div id="friend-zpos-value">
+            </div>
+            <input class="friend-zcon-slider" type="range" min="-10" max="10" value="0">
+          </div>
+        </div>
+        <hr>
 
+        <!--Movie-->
+        <h6>My TV Position</h6>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur libero temporibus dolor tempora quaerat
+          quo. Aperiam autem itaque quasi, voluptatibus libero voluptatem dolorem, doloremque laborum ipsa quidem
+          provident commodi cupiditate.</p>
+        <div class="row mt-4 mb-2 mx-4">
+          <h6 class="col-3" style="margin-top:2.75rem;">Position(x)</h6>
+          <div class="col-9">
+            <div id="tv-xpos-value">
+            </div>
+            <input class="tv-xcon-slider" type="range" min="-10" max="10" value="0">
+          </div>
+        </div>
+        <div class="row mt-4 mb-2 mx-4">
+          <h6 class="col-3" style="margin-top:2.75rem;">Position(y)</h6>
+          <div class="col-9">
+            <div id="tv-ypos-value">
+            </div>
+            <input class="tv-ycon-slider" type="range" min="-10" max="10" value="0">
+          </div>
+        </div>
+        <div class="row mt-4 mb-2 mx-4">
+          <h6 class="col-3" style="margin-top:2.75rem;">Position(z)</h6>
+          <div class="col-9">
+            <div id="tv-zpos-value">
+            </div>
+            <input class="tv-zcon-slider" type="range" min="-10" max="10" value="0">
+          </div>
         </div>
       </div>
     </div>
-    <div id="user-edit" class="col-6 my-5" style="height: 35rem;" align="center">
-      <h5 class="mr-5" align="right">
-        editAvatar
-      </h5>
-      <hr>
-      <div id="avatar-edit" class="row my-3">
-      </div>
 
+    <!--Edit Avatar Page-->
+    <div id="edit-page" class="row" style="display: none;">
+
+      <div id="user-preview" class="col-6">
+        <div class="card my-5 mx-4" style="height: 34rem;">
+          <div class="card-body my-3" align="center">
+
+            <!--User preview-->
+            <div id="my-edit-profile">
+              <p id="my-username" style="margin: 1.5rem; padding-left: 2.5rem; font-family: Sansation-Bold;"></p>
+              <img class="profile-avatar" alt="profile-avatar" style="width: 40%; height: auto; border:none;">
+            </div>
+            <h3 id="my-edit-username" class="mt-3"></h3>
+            <div id="edit-username" class="row px-4" align="center">
+              <div class="input-group mt-4 mx-4 mb-2" style="width: 100%;">
+                <i class="material-icons" area-hidden="true" style="color: #888;">person_outline</i>
+                <input id="username-url" type="text" placeholder="Edit Username">
+              </div>
+            </div>
+            <!--Logout and back btn-->
+            <div class="mt-4" id="change-made">
+              <button id="save-all" class="mx-4" type="btn"><i class="material-icons" aria-hidden="true">exit_to_app</i>
+                Save</button>
+              <button id="discard-all" class="mx-4" type="btn"><i class="material-icons"
+                  aria-hidden="true">arrow_back</i>
+                Cancel</button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div id="user-edit" class="col-6 my-5" style="height: 35rem;" align="center">
+        <h5 class="mr-5" align="right">
+          editAvatar
+        </h5>
+        <hr>
+        <div id="avatar-edit" class="row my-3">
+        </div>
+
+      </div>
     </div>
 
+  </main>
 
-    <!-- Bootstrap core JavaScript
+
+
+  <!-- Bootstrap core JavaScript
     ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <!-- <script type="text/javascript" src="js/youtube.js"></script>-->
-    <script src="https://www.youtube.com/iframe_api"></script>
-    <script type="text/javascript" src="js/youtube.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+  <!-- Placed at the end of the document so the pages load faster -->
+  <!-- <script type="text/javascript" src="js/youtube.js"></script>-->
+  <script src="https://www.youtube.com/iframe_api"></script>
+  <script type="text/javascript" src="js/youtube.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gun/gun.js"></script>
+  <script src="js/lib/radix.js"></script>
+  <script src="js/lib/radisk.js"></script>
+  <script src="js/lib/store.js"></script>
+  <script src="js/lib/rindexed.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gun/sea.js"></script>
+  <script src="js/lib/iris.js"></script>
+  <script src="js/lib/nts.js"></script>
+  <script src="js/lib/resonance-audio.min.js"></script>
+  <script src="js/resonance.js"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/gun/gun.js"></script>
-    <script src="js/lib/radix.js"></script>
-    <script src="js/lib/radisk.js"></script>
-    <script src="js/lib/store.js"></script>
-    <script src="js/lib/rindexed.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gun/sea.js"></script>
-    <script src="js/lib/iris.js"></script>
-    <script src="js/lib/nts.js"></script>
-    <script src="js/lib/resonance-audio.min.js"></script>
-    <script src="js/resonance.js"></script>
 
-
-    <script type="module" src="js/main.js"></script>
+  <script type="module" src="js/main.js"></script>
 
 </body>
 

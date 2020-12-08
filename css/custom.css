@@ -14,8 +14,190 @@
 	font-family: Sansation-boldItalic;
 	src: url("../fonts/Sansation/Sansation_Bold_Italic.ttf");
 }
+
+:root {
+	--primary-color: linear-gradient(
+		135deg,
+		rgba(119, 130, 253, 1) 0%,
+		rgba(73, 79, 148, 0.6) 100%
+	);
+	--secondary-color: linear-gradient(
+		180deg,
+		rgba(255, 87, 128, 1) 0%,
+		rgba(255, 87, 128, 0.8) 100%
+	);
+
+	--dark-color: linear-gradient(
+		225deg,
+		rgba(79, 79, 79, 1) 0%,
+		rgba(48, 47, 47, 0.9) 100%
+	);
+}
+
+main {
+	position: relative;
+	margin-left: 5rem;
+	padding: 1rem;
+	padding-bottom: 0;
+	transition: all 200ms ease;
+}
+
+.navbar {
+	width: 4rem;
+	height: 100vh;
+	position: fixed;
+	background: var(--primary-color);
+	border-radius: 0 1rem 1rem 0;
+	z-index: 1;
+	transition: all 200ms ease;
+	box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.61);
+	backdrop-filter: blur(0.5rem);
+}
+
+.logo {
+	margin-bottom: auto;
+}
+.navbar-nav {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	height: 100%;
+}
+.logo svg {
+	height: 100%;
+}
+.nav-item {
+	border-radius: 1rem;
+	width: 100%;
+}
+
+.nav-item:last-child {
+	margin-top: auto;
+}
+
+.nav-link {
+	color: #f2f2f2;
+	display: flex;
+	align-items: center;
+	height: 4rem;
+	text-decoration: none;
+}
+
+.navbar .link-text {
+	margin: auto;
+	margin-left: 1rem;
+	display: none;
+	transition: all 200ms ease-out;
+}
+
+.navbar:hover {
+	width: 12rem;
+}
+.navbar:hover .nav-item:last-child {
+	margin-bottom: auto;
+}
+.navbar:hover .link-text {
+	display: block;
+}
+
+#user-profile {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+#friends {
+	height: 96vh;
+	padding: 2rem;
+	display: flex;
+	flex-direction: column;
+	background: var(--dark-color);
+	border-radius: 2rem;
+	margin-bottom: 0;
+}
+
+.youtubeVideo {
+	padding: 1rem;
+	margin-bottom: 1rem;
+	position: relative;
+	padding-bottom: 56.25%;
+	height: 0;
+}
+
+.youtubeVideo iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	border-radius: 2rem !important;
+	box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.61);
+	transition: all 200ms ease;
+}
+
+#friend-list {
+	height: 60%;
+	overflow-y: auto;
+}
+
+#friend-avatar {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: #7782fd;
+	border-radius: 2.5rem;
+	width: 5rem;
+	height: 5rem;
+}
+#friend-avatar:hover {
+	padding-bottom: 0.2rem;
+	box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.61);
+}
+
+#vibes {
+	margin-top: 2rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+#my-link {
+	background: #7782fd;
+}
+
+#room {
+	margin-top: auto;
+	background: var(--primary-color);
+	border-radius: 1rem;
+}
+#room-config {
+	margin: auto;
+}
+#friend-controller,
+#self-controller,
+#video-controller {
+	border-radius: 1rem;
+	width: 2rem;
+	height: 2rem;
+}
+
+#friend-controller {
+	background-color: turquoise;
+}
+
+#self-controller {
+	background-color: violet;
+}
+
+#video-controller {
+	background-color: yellowgreen;
+}
 html,
 body {
+	background-color: #1f1f1f;
 	height: 100% !important;
 	width: 100% !important;
 }
@@ -78,6 +260,7 @@ body {
 	border-bottom: 0 !important;
 }
 
+/* 
 nav a.p-2 {
 	color: #f2f2f2;
 }
@@ -121,7 +304,7 @@ nav a.btn {
 		rgb(228, 177, 190) 0%,
 		rgb(228, 177, 190, 0.8) 100%
 	) !important;
-}
+} */
 
 #sign-in .card {
 	border-radius: 1rem;
@@ -305,11 +488,7 @@ button#start-vibe,
 button#add-friend,
 button#reject-vibe,
 button#end-vibe {
-	background: linear-gradient(
-		180deg,
-		rgba(255, 87, 128, 1) 0%,
-		rgba(255, 87, 128, 0.8) 100%
-	);
+	background: var(--primary-color);
 }
 
 button#answer-vibe {
@@ -363,9 +542,7 @@ a:hover {
 	font-family: Sansation-boldItalic;
 	color: #1f1f1f;
 }
-.profile-avatar {
-	border-radius: 3rem;
-}
+
 .poster {
 	border-radius: 1rem;
 	box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
@@ -375,17 +552,14 @@ div.user {
 	padding-right: 1.2rem;
 	padding-top: 0.5rem;
 	padding-bottom: 0.5rem;
+	transition: padding 200ms ease, background 200ms ease;
 }
 div.user:hover {
 	padding-left: 1.2rem;
 	padding-right: 1.2rem;
 	padding-top: 0.5rem;
 	padding-bottom: 0.5rem;
-	background: linear-gradient(
-		180deg,
-		#969fff 0%,
-		rgba(142, 151, 255, 0.8) 100%
-	);
+	background: var(--primary-color);
 	border-radius: 5rem;
 }
 
@@ -439,22 +613,22 @@ div.network-settings-btn:hover {
 		rgb(228, 177, 190, 0.8) 100%
 	);
 }
-#friends .card {
+#friends-list::-webkit-scrollbar-track-piece {
 	overflow-y: auto;
 	scrollbar-color: #1f1f1f #f2f2f2;
 }
 
-#friends .card::-webkit-scrollbar-track {
+::-webkit-scrollbar-track {
 	-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
 	background-color: #f2f2f2;
 }
 
-#friends .card::-webkit-scrollbar {
+::-webkit-scrollbar {
 	width: 12px;
 	background-color: #f2f2f2;
 }
 
-#friends .card::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb {
 	-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
 	background-color: #1f1f1f;
 }
@@ -630,20 +804,6 @@ div.network-settings-btn:hover {
 	text-align: center;
 	line-height: 2.5rem;
 	font-size: 1rem;
-}
-
-.youtubeVideo {
-	position: relative;
-	padding-bottom: 56.25%;
-	height: 0;
-}
-
-.youtubeVideo iframe {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
 }
 
 /* Depreciated */

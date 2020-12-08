@@ -15,5 +15,4 @@ var settingsPage;
 session.init();
 friend.init();
 avatar.init();
-
 export { gun };

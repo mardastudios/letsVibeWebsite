@@ -5,7 +5,7 @@ window.onYouTubeIframeAPIReady = function onYouTubeIframeAPIReady() {
 		height: "315",
 		width: "590",
 		videoId: "WdBQ7q9z7rE",
-		playerVars: { autoplay: 0, controls: 1, rel: 0 },
+		playerVars: { autoplay: 0, controls: 1, rels: 0 },
 		events: {
 			onReady: onPlayerReady,
 			onStateChange: onPlayerStateChange,

@@ -67,7 +67,7 @@ function login(k) {
 		.get("avatar")
 		.on(async (avatar) => {
 			avatar = await avatar;
-			$("#header-content")
+			$("#user-avatar")
 				.find(".profile-avatar")
 				.attr("src", generateAvatarURL(avatar));
 			$("#my-edit-profile")
@@ -77,6 +77,7 @@ function login(k) {
 				.find(".profile-avatar")
 				.attr("src", generateAvatarURL(avatar));
 		});
+	$("#nav-bar").show();
 	$("#vibe-page").show().siblings("div#start-page").hide();
 	setOurOnlineStatus();
 	iris.Channel.getChannels(gun, key, addFriend);
@@ -162,6 +163,13 @@ function init() {
 		console.log("NO ACCOUNT ACTIVE\n CREATE ONE");
 		createAccount();
 	}
+
+	$("#friends-tab").on("click", function () {
+		$("#friends").show().siblings("div#room-config").hide();
+	});
+	$("#room-tab").on("click", function () {
+		$("#room-config").show().siblings("div#friends").hide();
+	});
 
 	$("#youtube-url").on("input", onPasteYouTube);
 	$("#goto-signin").on("click", function () {

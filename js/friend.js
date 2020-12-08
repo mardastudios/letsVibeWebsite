@@ -119,12 +119,12 @@ function addFriend(channel) {
 	$("#friend-list").append(element);
 	$(".user").click(function () {
 		var friend_pub = $(this).attr("user-pub");
-		if ($(".callee").empty()) {
-			callee.find("#friend-username").text(friends[friend_pub].username);
+		if ($("#friend-avatar").empty()) {
 			callee
 				.find(".profile-avatar")
 				.attr("src", generateAvatarURL(friends[friend_pub].avatar));
-			$(".callee").append(callee);
+
+			$("#friend-avatar").append(callee);
 			if (friends[pub].online.isOnline) {
 				callButton.prop("disabled", false);
 				callButton.click(() => vibe.callUser(friend_pub));

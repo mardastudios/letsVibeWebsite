@@ -1,5 +1,6 @@
 import friend, { friends } from "./friend.js";
 import { gun } from "./main.js";
+import "./room.js";
 import session from "./session.js";
 var ourIceCandidates;
 var userMediaStream;
@@ -147,22 +148,34 @@ function createResonanceScence(audioElement) {
 	resonanceAudioScene.output.connect(audioContext.destination);
 
 	let roomDimensions = {
-		width: 3.1,
-		height: 2.5,
-		depth: 3.4,
+		width: 5,
+		height: 5,
+		depth: 5,
 	};
 
 	let roomMaterials = {
 		// Room wall materials
-		left: "brick-bare",
+		left: "curtain-heavy",
 		right: "curtain-heavy",
-		front: "marble",
-		back: "glass-thin",
+		front: "curtain-heavy",
+		back: "curtain-heavy",
 		// Room floor
-		down: "grass",
+		down: "curtain-heavy",
 		// Room ceiling
-		up: "transparent",
+		up: "curtain-heavy",
 	};
+
+	gun.user()
+		.get("profile")
+		.get("room")
+		.get("roomDimention")
+		.put(roomDimensions);
+	gun.user()
+		.get("profile")
+		.get("room")
+		.get("roomMaterial")
+		.put(roomMaterials);
+
 	console.log("Room Properties set");
 	resonanceAudioScene.setRoomProperties(roomDimensions, roomMaterials);
 
@@ -172,8 +185,16 @@ function createResonanceScence(audioElement) {
 	audioElementSource.connect(source.input);
 
 	//Position scene binaurally
-	source.setPosition(-3, 0, 0);
-	source.setMaxDistance(4);
+	gun.user()
+		.get("profile")
+		.get("room")
+		.get("source")
+		.on((src) => {
+			source.setPosition(src.x, src.y, src.z);
+			console.log(src);
+		});
+
+	source.setMaxDistance(5);
 
 	//Ear position
 	resonanceAudioScene.setListenerPosition(0, 0, 0);
@@ -341,6 +362,7 @@ async function initConnection(createOffer, pub) {
 				remoteAudio[0].play();
 				console.log("metadata loaded");
 			};
+			console.log(room.mousePosition);
 			createResonanceScence(event.streams[0]);
 			console.log("received remote stream", event);
 		}
